@@ -13,6 +13,7 @@ class MotorTempNode(Node):
     def temp_callback(self, msg):
         '''this is how you callback all the temp readings when they drop'''
         temp=msg.data
+        '''This is how we check the temperature and turn off the motor if it is too hot'''
         if temp<=60:
             self.get_logger().info(f'Motor Temperature is {temp}')
             self.motor_state.data= True
