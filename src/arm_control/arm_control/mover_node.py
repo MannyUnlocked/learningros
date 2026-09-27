@@ -17,6 +17,14 @@ class MotorTempNode(Node):
             self.get_logger().info(f'Motor Temperature is {temp}')
             self.motor_state.data= True
             self.pub_.publish(self.motor_state)
+        elif temp>60 and temp<=75:
+            self.get_logger().info(f'Motor Temp is {temp}, Motor is getting hot, consider slowing down ')
+            self.motor_state.data= True
+            self.pub_.publish(self.motor_state)
+        elif temp >75:
+            self.get_logger().info(f'Motor Temp is {temp}, Motor is too hot, TURNED OFF MOTOR')
+            self.motor_state.data= False
+            self.pub_.publish(self.motor_state)
 
 def main(args=None):
     rclpy.init(args=args)
