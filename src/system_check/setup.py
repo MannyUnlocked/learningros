@@ -24,7 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'motor_safety_ctrl = system_check.motor_safety_ctrl_node:main', 
+            'motor_safety_ctrl = system_check.motor_safety_ctrl_node:main',
+            'robot_safety_ctrl = system_check.robot_safety_check_node:main', 
         ],
     },
 )
